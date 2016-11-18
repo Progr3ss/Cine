@@ -24,14 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var userID: Int? = nil
 	
 	// configuration for TheMovieDB, we'll take care of this for you =)...
-	var config = Config()
+	var config = TMDBConfig()
 	
 	// MARK: UIApplicationDelegate
 	
 	private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		// if necessary, update the configuration...
-		config.updateIfDaysSinceUpdateExceeds(days: 7)
+		config.updateIfDaysSinceUpdateExceeds(7)
 		
 		return true
 	}

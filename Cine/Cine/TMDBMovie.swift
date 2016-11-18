@@ -8,56 +8,42 @@
 
 import Foundation
 
-//MARK: - TMDBMovie
-
 struct TMDBMovie {
 	
 	// MARK: Properties
 	
-	let title : String
+	let title: String
 	let id: Int
-//	let popularity: Int
-//	var releaseDate: String?
-//	let overview: String?
 	let posterPath: String?
-//	let releaseYear: String?
-//	let genreId: Int
-//	let page : Int
+	let releaseYear: String?
 	
+	// MARK: Initializers
 	
-	//MARK: Initializers
-	
-	init(dictionary: [String: AnyObject]) {
-		title = dictionary[Constants.TMDBResponseKeys.Title] as! String
-		id = dictionary[Constants.TMDBResponseKeys.ID] as! Int
-//		overview = dictionary[Constants.TMDBResponseKeys.Overview] as? String
-		posterPath = dictionary[Constants.TMDBResponseKeys.PosterPath] as? String
-//		releaseYear = dictionary[Constants.TMDBResponseKeys.ReleaseDate] as? String
-//		genreId = (dictionary[Constants.TMDBResponseKeys.Genre_ids] as? Int)!
-//		popularity = (dictionary[Constants.TMDBResponseKeys.Popularity] as? Int)!
-//		page = (dictionary[Constants.TMDBResponseKeys.Page] as? Int)!
+	// construct a TMDBMovie from a dictionary
+	init(dictionary: [String:AnyObject]) {
+		title = dictionary[TMDBClient.JSONResponseKeys.MovieTitle] as! String
+		id = dictionary[TMDBClient.JSONResponseKeys.MovieID] as! Int
+		posterPath = dictionary[TMDBClient.JSONResponseKeys.MoviePosterPath] as? String
+		
+		if let releaseDateString = dictionary[TMDBClient.JSONResponseKeys.MovieReleaseDate] as? String, releaseDateString.isEmpty == false {
+			releaseYear = releaseDateString.substring(to: releaseDateString.characters.index(releaseDateString.startIndex, offsetBy: 4))
+		} else {
+			releaseYear = ""
+		}
 	}
 	
-
-		static func movieFromResults(results: [[String: AnyObject]]) -> [TMDBMovie] {
-			var movies = [TMDBMovie]()
+	static func moviesFromResults(_ results: [[String:AnyObject]]) -> [TMDBMovie] {
 		
-			for result in results {
-				
-				movies.append(TMDBMovie(dictionary: result))
-			}
-			
-			
+		var movies = [TMDBMovie]()
 		
-			return movies
+		// iterate through array of dictionaries, each Movie is a dictionary
+		for result in results {
+			movies.append(TMDBMovie(dictionary: result))
 		}
 		
+		return movies
 	}
-	// MARK: - TMDBMovie: Equatable
-	
-	
-	
-
+}
 
 // MARK: - TMDBMovie: Equatable
 
@@ -66,4 +52,3 @@ extension TMDBMovie: Equatable {}
 func ==(lhs: TMDBMovie, rhs: TMDBMovie) -> Bool {
 	return lhs.id == rhs.id
 }
-
