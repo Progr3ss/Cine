@@ -40,8 +40,8 @@ extension TMDBClient {
 								
 								// success! we have the sessionID!
 								self.sessionID = sessionID
-							
-							
+								
+								
 								self.getUserID() { (success, userID, errorString) in
 									
 									if success {
@@ -92,7 +92,7 @@ extension TMDBClient {
 		}
 	}
 	
-	 //This function opens a TMDBAuthViewController to handle Step 2a of the auth flow
+	//This function opens a TMDBAuthViewController to handle Step 2a of the auth flow
 	private func loginWithToken(_ requestToken: String?, hostViewController: UIViewController, completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
 		
 		let authorizationURL = URL(string: "\(TMDBClient.Constants.AuthorizationURL)\(requestToken!)")
@@ -214,6 +214,7 @@ extension TMDBClient {
 		/* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
 		let parameters = [TMDBClient.ParameterKeys.SessionID: TMDBClient.sharedInstance().sessionID!]
 		var mutableMethod: String = Methods.AccountIDFavoriteMovies
+		
 		mutableMethod = substituteKeyInMethod(mutableMethod, key: TMDBClient.URLKeys.UserID, value: String(TMDBClient.sharedInstance().userID!))!
 		
 		/* 2. Make the request */
@@ -262,15 +263,81 @@ extension TMDBClient {
 		}
 	}
 	
+//	
+//	func getNowPlayingMovies(page:Int, _ completionHandlerForNowPlaying: @escaping (_ result: [TMDBMovie]?, _ error: NSError?) -> Void)
+//	{
+//		/* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+//		let parameters = [TMDBClient.ParameterKeys.ApiKey: TMDBClient.Constants.ApiKey,
+//		                  TMDBClient.JSONResponseKeys.Moviepage: page] as [String : Any]
+//		
+//		var mutableMethod: String = Methods.MoviesPlayingNow
+//		//		mutableMethod = substituteKeyInMethod(mutableMethod, key: TMDBClient.URLKeys.UserID, value: String(TMDBClient.sharedInstance().userID!))!
+//		
+//		let _ = taskForGETMethod(mutableMethod, parameters: parameters as [String : AnyObject], completionHandlerForGET: {(results, error ) in
+//			
+//			print("Results \(results)")
+//			if let error = error {
+//				completionHandlerForNowPlaying(nil, error)
+//				
+//				
+//				
+//			}else {
+//				
+//				if let results = results?[TMDBClient.JSONResponseKeys.MovieResults] as? [[String: AnyObject]]{
+//					let movies = TMDBMovie.moviesFromResults(results)
+//					completionHandlerForNowPlaying(movies, nil)
+//					
+//				}else{
+//					
+//					completionHandlerForNowPlaying(nil, NSError(domain: "getNowPlayingMovies", code: 0, userInfo:
+//						[NSLocalizedDescriptionKey:"Could not parse getNowPlayingMovies"]))
+//				}
+//			}
+//			
+//		})
+//		
+//	}
 	
-	func getNowPlayingMovies(page:Int, _ completionHandlerForNowPlaying: @escaping (_ result: [TMDBMovie]?, _ error: NSError?) -> Void)
+//	func getUpcommingMovies(page:Int, _ completionHandlerForNowPlaying: @escaping (_ result: [TMDBMovie]?, _ error: NSError?) -> Void)
+//	{
+//		/* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+//		let parameters = [TMDBClient.ParameterKeys.ApiKey: TMDBClient.Constants.ApiKey,
+//		                  TMDBClient.JSONResponseKeys.Moviepage: page] as [String : Any]
+//		
+//		var mutableMethod: String = Methods.MoviesUpcoming
+//
+//		let _ = taskForGETMethod(mutableMethod, parameters: parameters as [String : AnyObject], completionHandlerForGET: {(results, error ) in
+//			
+//			print("Results \(results)")
+//			if let error = error {
+//				completionHandlerForNowPlaying(nil, error)
+//				
+//				
+//				
+//			}else {
+//				
+//				if let results = results?[TMDBClient.JSONResponseKeys.MovieResults] as? [[String: AnyObject]]{
+//					let movies = TMDBMovie.moviesFromResults(results)
+//					completionHandlerForNowPlaying(movies, nil)
+//					
+//				}else{
+//					
+//					completionHandlerForNowPlaying(nil, NSError(domain: "getMoviesPopular", code: 0, userInfo:
+//						[NSLocalizedDescriptionKey:"Could not parse getMoviesPopular"]))
+//				}
+//			}
+//			
+//		})
+//		
+//	}
+	
+	func getPopularMovies(page:Int, _ completionHandlerForNowPlaying: @escaping (_ result: [TMDBMovie]?, _ error: NSError?) -> Void)
 	{
 		/* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
 		let parameters = [TMDBClient.ParameterKeys.ApiKey: TMDBClient.Constants.ApiKey,
 		                  TMDBClient.JSONResponseKeys.Moviepage: page] as [String : Any]
 		
-		var mutableMethod: String = Methods.MoviesPlayingNow
-//		mutableMethod = substituteKeyInMethod(mutableMethod, key: TMDBClient.URLKeys.UserID, value: String(TMDBClient.sharedInstance().userID!))!
+		var mutableMethod: String = Methods.MoviesPopular
 		
 		let _ = taskForGETMethod(mutableMethod, parameters: parameters as [String : AnyObject], completionHandlerForGET: {(results, error ) in
 			
@@ -288,18 +355,12 @@ extension TMDBClient {
 					
 				}else{
 					
-					completionHandlerForNowPlaying(nil, NSError(domain: "getNowPlayingMovies", code: 0, userInfo:
-						[NSLocalizedDescriptionKey:"Could not parse getNowPlayingMovies"]))
+					completionHandlerForNowPlaying(nil, NSError(domain: "getMoviesUpcomming", code: 0, userInfo:
+						[NSLocalizedDescriptionKey:"Could not parse getMoviesUpcomming"]))
 				}
 			}
 			
-			
-		
-			
-		
 		})
-		
-		
 		
 	}
 	

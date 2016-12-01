@@ -10,134 +10,79 @@ import UIKit
 
 class MoviesNowPlayingViewController: UIViewController {
 	
+	var appDelegate: AppDelegate!
 	var movies: [TMDBMovie] = [TMDBMovie]()
+	var trailers: [TMDBTrailers] = [TMDBTrailers]()
+	let cellResueIdentifier = "NowPlayingCell"
+//	var movieId: Int?
 	var pageNumber = 1
-//	let scrollView : UIScrollView!
+	//	let scrollView : UIScrollView!
 	@IBOutlet weak var moviesCollectionView: UICollectionView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	var collectionViewLayout: CustomImageFlowLayout!
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		appDelegate = UIApplication.shared.delegate as! AppDelegate
+		collectionViewLayout = CustomImageFlowLayout()
 		
-		print("pageNumber \(pageNumber)")
+		moviesCollectionView.collectionViewLayout = collectionViewLayout
 		
-//		moviesCollectionView.delegate = self
-//		moviesCollectionView.dataSource = self
-//		scrollView.delegate = self
-//		UIScrollView.delegate = self
 		
-//		let 
-
-        // Do any additional setup after loading the view.
-    }
-
+	}
+	
 	
 	override func viewWillAppear(_ animated: Bool) {
 		
 		super.viewWillAppear(animated)
 		
 		
-		print("pageNumberViewWIll \(pageNumber)")
 		TMDBClient.sharedInstance().getNowPlayingMovies(page: pageNumber, {(movies, error) in
 			
 			if let movies  = movies{
-				self.movies = movies
+				
+				self.movies += movies
+				
 				
 				performUIUpdatesOnMain {
 					
 					self.moviesCollectionView.reloadData()
-			
+					
 				}
 			}else{
 				print(error)
 			}
-		
-		
+			
+			
 		})
+		
+		
+//		TMDBClient.sharedInstance().getMovieVideos(movieId: <#T##Int#>, <#T##completionHandlerForNowPlaying: ([TMDBTrailers]?, NSError?) -> Void##([TMDBTrailers]?, NSError?) -> Void#>)
+		
+		
+		
 	}
 	
-
 	
-//	func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-//		
-//		delegate?.scrollViewDidScrollToTop?(scrollView)
-//		
-//		print("Scrollview \(scrollView.scrollsToTop)")
-////		if scrollView.contentOffset.y == 0{
-////			print("Ended")
-////			pageNumber  += 1
-////			
-////		}
-//		
-////		pageNumber += 1
-////		
-////		print("pageNumber \(pageNumber)")
-//		
-//	}
-//	
-//	scrollView)
 	
-
 }
-
 
 extension MoviesNowPlayingViewController: UICollectionViewDataSource{
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cellResueIdentifier = "NowPlayingCell"
+//		let cellResueIdentifier = "NowPlayingCell"
 		let movie = movies[(indexPath as NSIndexPath).row]
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellResueIdentifier, for: indexPath) as! NowPlayingCellCollectionViewCell
-		
-		
-//		collectionView.isScrollEnabled = true
-		
-	
-//		if indexPath.row == 19 {
-//			pageNumber += 1
-//		}
-		
-//		 self.moviesCollectionView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true) 
-		
-		
-//		moviesCollectionView.indexPath.last
-		
-		let a = moviesCollectionView.numberOfSections - 1
-		if a == indexPath.row {
-			print("Yah")
-			
-			pageNumber  += 1
-		}
-//		if a {
-//			pageNumber += 1
-//			print("Gread")
-//		}
 		
 		
 		var item = self.collectionView(self.moviesCollectionView!, numberOfItemsInSection: 0) - 1
 		var lastItemIndex = NSIndexPath(item: item, section: 0)
 		
 		
-		if indexPath.row == movies.count {
-			print("Last Row")
-		}
 		
-//		if 	self.moviesCollectionView?.scrollToItem(at: lastItemIndex as IndexPath, at: UICollectionViewScrollPosition.bottom, animated:false) {
-//			
-//		}
-//		
-//		var lastItemIndex = NSIndexPath(forItem: item, inSection: 0)
-		
-//		self.moviesCollectionView?.scrollToItem(at: lastItemIndex as IndexPath, at: UICollectionViewScrollPosition.bottom, animated:false)
-//		
-		
-//		self.collectionView?.scrollToItemAtIndexPath(lastItemIndex, atScrollPosition: UICollectionViewScrollPosition.Top, animated: false)
-		
-		
-//		cell.configureCell()
 		if let posterPath = movie.posterPath {
 			let _ = TMDBClient.sharedInstance().taskForGETImage(TMDBClient.PosterSizes.RowPoster, filePath: posterPath, completionHandlerForImage: { (imageData, error) in
 				if let image = UIImage(data: imageData!) {
 					performUIUpdatesOnMain {
-					
+						
 						cell.configureCell(data: imageData!)
 					}
 				} else {
@@ -157,91 +102,136 @@ extension MoviesNowPlayingViewController: UICollectionViewDataSource{
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		
-//		print("Movies \(movies.count)")
-//		
-//		if (indexPath == movies.count){
-//			print("Last Row")
-//			
-//		}
+		
+		print("Movies \(movies.count)")
 		return movies.count
 	}
 	
+	
+	
+}
+
+extension  MoviesNowPlayingViewController: UICollectionViewDelegate {
+	
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let movie = movies[(indexPath as NSIndexPath).row]
+		
+		
+//		if let movieId = movie.id {
+//			
+//		}
+		
+		
+		let movieId = movie.id
+//		var movieId: Int? = movie.id
+		
+		
+		
+		
+		print("MovieId  \(movieId)")
+		
+		
+//		self.appDelegate.movie_ID = movieId
+		
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellResueIdentifier, for: indexPath) as! NowPlayingCellCollectionViewCell
+		
+		TMDBClient.sharedInstance().getMovieVideos(movieId: movieId, {(movies, error) in
+			
+			if let movies  = movies{
+				
+//				self.movies += movies
+				
+				
+				performUIUpdatesOnMain {
+					
+//					if let video =
+					
+					
+					
+//					print("Video Y \(movies[0].key)")
+//					let url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
+					
+//					print("")
+					let url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
+					
+					print("NowPlayingURLURL \(url)")
+//					cell.configureCell(data: movies[0].key)
+					cell.videoURL(url: url!)
+//					cell.videoURL()
+//					cell.conf
+//					self.moviesCollectionView.reloadData()
+					
+//					cell.playVideoButton(self, url: url!)
+//					cell.url = "https://www.youtube.com/watch?v=\((movies[0].key))"
+				}
+			}else{
+				print(error)
+			}
+			
+			
+		})
+	
+	
+//		let posterPath = movie.id {
+//			let _ = TMDBClient.sharedInstance().taskForGETImage(TMDBClient.PosterSizes.RowPoster, filePath: posterPath, completionHandlerForImage: { (imageData, error) in
+//				if let image = UIImage(data: imageData!) {
+//					performUIUpdatesOnMain {
+//						
+//						cell.configureCell(data: imageData!)
+//					}
+//				} else {
+//					print(error)
+//				}
+//			})
+//		}
+		
+		
+		print("you selected \(index)")
+	}
 }
 
 
+//https://api.themoviedb.org/3/movie/343611/videos?api_key=2007a6ba55005dd305c31f4d13354605&language=en-US
+
 extension  MoviesNowPlayingViewController: UIScrollViewDelegate{
-	
-	
-	func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-		scrollView.delegate = self
-		
-		print("End")
-		
-		
-	}
-	
-	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-		
-		if(velocity.y>0){
-			print("dragging Up")
-		}else{
-			NSLog("dragging Down");
-		}
-	}
 	
 
 	
+
+	
+	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
-		print("Scrolling")
 		
 		
 		var bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
 		
 		if bottomEdge >= scrollView.contentSize.height{
 			
-			print("Bottom")
 			
 			pageNumber += 1
 			
-			
-			
-//			TMDBClient.sharedInstance().getNowPlayingMovies(page: pageNumber, {(movies, error) in
-//				
-//				if let movies  = movies{
-//					self.movies = movies
-//					
-//					performUIUpdatesOnMain {
-//						
-//						self.moviesCollectionView.reloadData()
-//						
-//					}
-//				}else{
-//					print(error)
-//				}
-//				
-//				
-//			})
+			TMDBClient.sharedInstance().getNowPlayingMovies(page: pageNumber, {(movies, error) in
+				
+				if let movies  = movies{
+					self.movies += movies
+					
+					performUIUpdatesOnMain {
+						
+						self.moviesCollectionView.reloadData()
+						
+					}
+				}else{
+					print(error)
+				}
+				
+				
+			})
 		}
-//			
-//			performUIUpdatesOnMain {
-////				self.moviesCollectionView.reloadData()
-//				
-//				
-//			}
-//			moviesCollectionView.reloadData()
-			
-		}
-//		self.collectionView.isScrollEnabled = true
-//		print("yes")
 		
-//		scrollView.delegate = self
-//		let foregroundHeight = foreground.contentSize.height - foreground.bounds.height
-//		let percentageScroll = foreground.contentOffset.y / foregroundHeight
-//		let backgroundHeight = background.contentSize.height - background.bounds.height
-//		
-//		background.contentOffset = CGPoint(x: 0, y: backgroundHeight * percentageScroll)
-	
+		
+	}
 	
 }
 

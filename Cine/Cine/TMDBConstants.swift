@@ -34,7 +34,13 @@ extension TMDBClient {
 		
 		//MARK: Movies
 		static let MoviesPlayingNow = "/movie/now_playing"
+		static let MoviesUpcoming = "/movie/upcoming"
+		static let MoviesPopular = "/movie/popular"
+		static let MovieVideos = "/movie/{movie_id}/videos"
 		
+		//MARK: Video
+		
+		static let Movie_ID = "movie_id"
 		// MARK: Authentication
 		static let AuthenticationTokenNew = "/authentication/token/new"
 		static let AuthenticationSessionNew = "/authentication/session/new"
@@ -93,12 +99,15 @@ extension TMDBClient {
 		
 		// MARK: Movies
 		static let MovieID = "id"
+		static let MovieVideoID = "movie_id"
 		static let MovieTitle = "title"
 		static let MoviePosterPath = "poster_path"
 		static let MovieReleaseDate = "release_date"
 		static let MovieReleaseYear = "release_year"
 		static let MovieResults = "results"
 		static let Moviepage = "page"
+		static let TrailerName = "name"
+		static let TrailerKey = "key"
 		
 	}
 	
