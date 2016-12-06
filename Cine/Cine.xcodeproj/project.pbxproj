@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		912121BE1DF0CCA5007AD00A /* CellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912121BD1DF0CCA5007AD00A /* CellButton.swift */; };
 		91355FFD1DE44A1500F45542 /* TMDBGetMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91355FFC1DE44A1500F45542 /* TMDBGetMethods.swift */; };
 		91355FFF1DE4661B00F45542 /* MovieKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91355FFE1DE4661B00F45542 /* MovieKeys.swift */; };
 		913960C81DA8EA640071A84F /* TMDBAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913960C71DA8EA640071A84F /* TMDBAuthViewController.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		912121BD1DF0CCA5007AD00A /* CellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellButton.swift; sourceTree = "<group>"; };
 		91355FFC1DE44A1500F45542 /* TMDBGetMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBGetMethods.swift; sourceTree = "<group>"; };
 		91355FFE1DE4661B00F45542 /* MovieKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieKeys.swift; sourceTree = "<group>"; };
 		913960C71DA8EA640071A84F /* TMDBAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBAuthViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				9167F7771DDD989700ADF05F /* BorderedButton.swift */,
 				91F63A3A1DE0F3AB00AAEAD0 /* CustomImageFlowLayout.swift */,
+				912121BD1DF0CCA5007AD00A /* CellButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				9167F77F1DDD997100ADF05F /* FavoritesViewController.swift in Sources */,
 				91576AA41DE04A52004055F4 /* MoviesPopularViewController.swift in Sources */,
 				91B709BD1DDF04BD00303E27 /* MoviesNowPlayingViewController.swift in Sources */,
+				912121BE1DF0CCA5007AD00A /* CellButton.swift in Sources */,
 				9167F77D1DDD994800ADF05F /* MovieDetailViewController.swift in Sources */,
 				91553FC31DB5C31D00D509AE /* SegmentedControl.swift in Sources */,
 				91355FFF1DE4661B00F45542 /* MovieKeys.swift in Sources */,

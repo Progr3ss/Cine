@@ -76,8 +76,14 @@ extension MoviesNowPlayingViewController: UICollectionViewDataSource{
 		var item = self.collectionView(self.moviesCollectionView!, numberOfItemsInSection: 0) - 1
 		var lastItemIndex = NSIndexPath(item: item, section: 0)
 		
+//		cell.playVideoButton(self).addTarget(self, action: Selector("playVideo"), for: UIControlEvents.touchUpInside)
 		
 		
+//		func playVideo() {
+//			
+//			print("Playing Video")
+//			
+//		}
 		if let posterPath = movie.posterPath {
 			let _ = TMDBClient.sharedInstance().taskForGETImage(TMDBClient.PosterSizes.RowPoster, filePath: posterPath, completionHandlerForImage: { (imageData, error) in
 				if let image = UIImage(data: imageData!) {
@@ -117,53 +123,35 @@ extension  MoviesNowPlayingViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let movie = movies[(indexPath as NSIndexPath).row]
 		
-		
-//		if let movieId = movie.id {
-//			
-//		}
-		
+
 		
 		let movieId = movie.id
-//		var movieId: Int? = movie.id
 		
 		
 		
 		
 		print("MovieId  \(movieId)")
 		
-		
-//		self.appDelegate.movie_ID = movieId
+	
 		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellResueIdentifier, for: indexPath) as! NowPlayingCellCollectionViewCell
 		
 		TMDBClient.sharedInstance().getMovieVideos(movieId: movieId, {(movies, error) in
 			
 			if let movies  = movies{
-				
-//				self.movies += movies
-				
-				
+		
 				performUIUpdatesOnMain {
-					
-//					if let video =
-					
-					
-					
-//					print("Video Y \(movies[0].key)")
-//					let url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
-					
-//					print("")
-					let url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
+	
+				let url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
 					
 					print("NowPlayingURLURL \(url)")
-//					cell.configureCell(data: movies[0].key)
-					cell.videoURL(url: url!)
-//					cell.videoURL()
-//					cell.conf
-//					self.moviesCollectionView.reloadData()
 					
-//					cell.playVideoButton(self, url: url!)
-//					cell.url = "https://www.youtube.com/watch?v=\((movies[0].key))"
+					
+					
+					
+					
+					
+
 				}
 			}else{
 				print(error)
@@ -171,28 +159,17 @@ extension  MoviesNowPlayingViewController: UICollectionViewDelegate {
 			
 			
 		})
-	
-	
-//		let posterPath = movie.id {
-//			let _ = TMDBClient.sharedInstance().taskForGETImage(TMDBClient.PosterSizes.RowPoster, filePath: posterPath, completionHandlerForImage: { (imageData, error) in
-//				if let image = UIImage(data: imageData!) {
-//					performUIUpdatesOnMain {
-//						
-//						cell.configureCell(data: imageData!)
-//					}
-//				} else {
-//					print(error)
-//				}
-//			})
-//		}
 		
-		
-		print("you selected \(index)")
+
 	}
+	
+
+
+	
 }
 
 
-//https://api.themoviedb.org/3/movie/343611/videos?api_key=2007a6ba55005dd305c31f4d13354605&language=en-US
+
 
 extension  MoviesNowPlayingViewController: UIScrollViewDelegate{
 	
@@ -234,6 +211,7 @@ extension  MoviesNowPlayingViewController: UIScrollViewDelegate{
 	}
 	
 }
+
 
 
 

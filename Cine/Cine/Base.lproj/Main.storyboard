@@ -331,7 +331,7 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="nKi-Le-Lnk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="961-wk-DRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815" y="1014"/>
+            <point key="canvasLocation" x="2046" y="1107"/>
         </scene>
         <!--Web Auth-->
         <scene sceneID="koO-xV-xhN">
@@ -459,7 +459,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9z3-U2-gwS" id="Z0D-T2-Hak">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -546,7 +546,7 @@
                                                     <state key="normal" title="Button" image="play"/>
                                                     <connections>
                                                         <action selector="playVideoButton:" destination="l5L-rA-Y3x" eventType="touchUpInside" id="SEh-1J-s8k"/>
-                                                        <segue destination="nKi-Le-Lnk" kind="presentation" id="UJf-Fs-cIi"/>
+                                                        <segue destination="nKi-Le-Lnk" kind="presentation" identifier="playVideo" id="UJf-Fs-cIi"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -564,6 +564,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="artworkImageView" destination="Bt8-JR-GGd" id="k9h-Oc-NEM"/>
+                                            <outlet property="playButtonLabel" destination="Tzq-Dm-v5M" id="QrO-6l-ZQ0"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -590,7 +591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2Z-4H-IEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="944"/>
+            <point key="canvasLocation" x="522" y="975"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="OaG-G9-JDH">
@@ -650,7 +651,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2lC-ep-XNC" id="EOQ-ua-4v9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -724,7 +725,7 @@
                                         <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mlt-ng-ebs" id="Vc4-GS-xYF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

@@ -9,18 +9,46 @@
 import UIKit
 import AVFoundation
 import AVKit
-class NowPlayingCellCollectionViewCell: UICollectionViewCell {
+class NowPlayingCellCollectionViewCell: UICollectionViewCell, AVPlayerViewControllerDelegate {
 	
+	@IBOutlet weak var playButtonLabel: UIButton!
 	@IBOutlet weak var artworkImageView: UIImageView!
 	var playerController = AVPlayerViewController()
-	var url : URL!
+	var url: URL!
+//	var button:UIButton!
 	
 	
+//	override init(frame: CGRect) {
+//		
+//		super.init(frame:frame)
+//		
+//		playButtonLabel.isUserInteractionEnabled = true
+//		playButtonLabel.isEnabled = true
+//		playButtonLabel.addTarget(self, action:Selector(("pressed")), for: .primaryActionTriggered)
+//		self.addSubview(playButtonLabel)
+//		
+//		
+//	}
+//	
+//	required init?(coder aDecoder: NSCoder) {
+//		super.init(coder: aDecoder)
+////		fatalError("init(coder:) has not been implemented")
+//	}
+//	
 	
+	
+//	required init?(coder aDecoder: NSCoder) {
+//		fatalError("init(coder:) has not been implemented")
+//	}
+	
+//	func pressed(sender: UIButton!) {
+//		print("button pressed!")
+//	}
+//	
+//
 	func configureCell(data:Data)  {
 		
 		
-		//		let data = try? Data(contentsOf: imageURL)
 		if let image = UIImage(data: data){
 			
 			if image == nil {
@@ -28,6 +56,8 @@ class NowPlayingCellCollectionViewCell: UICollectionViewCell {
 			}
 			else{
 				self.artworkImageView.image = image
+				
+
 			}
 			
 		}
@@ -36,45 +66,7 @@ class NowPlayingCellCollectionViewCell: UICollectionViewCell {
 	}
 	
 	
-	//	func videoURL(key: String) -> URL{
-	//
-	//
-	//		let url = URL(string: "https://www.youtube.com/watch?v=\(key)")
-	////		URLSession.shared.dataTask(with: url!, completionHandler: {
-	////			(data, response, error) in
-	////			if(error != nil){
-	////				print("error")
-	////			}else{
-	////
-	////			}
-	////		}).resume()
-	//
-	//		return url!
-	//	}
-	//
-	//	func playVideo(url: NSURL){
-	//		let player = AVPlayer(url: url as URL)
-	//		let playerController = AVPlayerViewController()
-	//
-	//		playerController.player = player
-	////		self.addChildViewController(playerController)
-	////		self.view.addSubview(playerController.view)
-	////		playerController.view.frame = self.view.frame
-	//
-	//		player.play()
-	//	}
-	//
 	
-	
-		func videoURL(url:URL) {
-	
-	
-		
-	
-	
-//			print("CellURl \(url)")
-	
-		}
 	
 	
 	
@@ -82,53 +74,27 @@ class NowPlayingCellCollectionViewCell: UICollectionViewCell {
 	
 	@IBAction func playVideoButton(_ sender: Any) {
 		
-		print("URLCell \(url)")
-//		let player = AVPlayer(url: url as URL)
-//		playerController = AVPlayerViewController()
-//		playerController.player = player
-//		player.play()
-		
 
 			
+		}
+		
+
+}
+
+//extension UIButton {
+//	
+//	open override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+//		
+//		if self.superview is NowPlayingCellCollectionViewCell {
+//			if context.nextFocusedView == self {
+//				print("Focused View")
+//			}else{
+//				print("Not Focused")
+//			}
 //		}
-		
-		
-//		func videoURL(url:URL) {
-//			
-			
-//			let player = AVPlayer(url: url as URL)
-//			playerController = AVPlayerViewController()
-//			playerController.player = player
-//			player.play()
-			
+//		
+//		
+//	}
 //
-//		}
-		
-//		if let urlString = URL(string : "") {
-//			
-//		}
-		
-		//		videoURL(url: <#T##URL#>)
-		
-//		let player = AVPlayer(url: url as URL)
-//		playerController = AVPlayerViewController()
-//		playerController.player = player
-//		player.play()
-//		
-//		
-		
-//		print("StringURL \(url)")
-		
-	}
-	
-	
-	
-	
-	
-	
-}
-extension UIViewController{
-	
-	
-	
-}
+//}
+
