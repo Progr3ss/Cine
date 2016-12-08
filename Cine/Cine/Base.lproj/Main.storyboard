@@ -325,6 +325,24 @@
             </objects>
             <point key="canvasLocation" x="950" y="551"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="WBK-nc-tdg">
+            <objects>
+                <viewController id="zj9-0z-Gle" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8YL-tX-s5u"/>
+                        <viewControllerLayoutGuide type="bottom" id="QbB-4t-OkG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hRY-JZ-QPR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kvk-Mr-LkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2182" y="926"/>
+        </scene>
         <!--AV Player View Controller-->
         <scene sceneID="Xmp-mR-8Iq">
             <objects>
@@ -364,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amv-Ff-gUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="251" y="1221"/>
+            <point key="canvasLocation" x="1814" y="815"/>
         </scene>
         <!--Movie Detail-->
         <scene sceneID="2ta-ac-8Vi">
@@ -437,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vga-vg-xbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="1311"/>
+            <point key="canvasLocation" x="1015" y="1828"/>
         </scene>
         <!--Watchlist-->
         <scene sceneID="2aP-do-toW">
@@ -459,7 +477,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9z3-U2-gwS" id="Z0D-T2-Hak">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -537,27 +555,13 @@
                                                         <constraint firstAttribute="height" constant="40" id="Uoq-QM-Nju"/>
                                                     </constraints>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzq-Dm-v5M">
-                                                    <rect key="frame" x="70" y="88" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="W7I-0M-bTn"/>
-                                                        <constraint firstAttribute="height" constant="40" id="fJ6-lO-de6"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="play"/>
-                                                    <connections>
-                                                        <action selector="playVideoButton:" destination="l5L-rA-Y3x" eventType="touchUpInside" id="SEh-1J-s8k"/>
-                                                        <segue destination="nKi-Le-Lnk" kind="presentation" id="UJf-Fs-cIi"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Tzq-Dm-v5M" firstAttribute="centerY" secondItem="l5L-rA-Y3x" secondAttribute="centerY" id="G9W-XV-xFk"/>
                                             <constraint firstAttribute="bottom" secondItem="iSc-49-59d" secondAttribute="bottom" id="KdF-1v-AX4"/>
                                             <constraint firstItem="Bt8-JR-GGd" firstAttribute="top" secondItem="l5L-rA-Y3x" secondAttribute="topMargin" constant="-12" id="S0t-1f-tRK"/>
                                             <constraint firstAttribute="trailing" secondItem="Bt8-JR-GGd" secondAttribute="trailing" id="Ust-cc-Dbm"/>
                                             <constraint firstItem="iSc-49-59d" firstAttribute="leading" secondItem="l5L-rA-Y3x" secondAttribute="leading" id="Xte-pl-FFN"/>
-                                            <constraint firstItem="Tzq-Dm-v5M" firstAttribute="centerX" secondItem="l5L-rA-Y3x" secondAttribute="centerX" id="f8a-Di-NQ4"/>
                                             <constraint firstItem="Bt8-JR-GGd" firstAttribute="centerY" secondItem="l5L-rA-Y3x" secondAttribute="centerY" id="gp1-YW-MSW"/>
                                             <constraint firstItem="Bt8-JR-GGd" firstAttribute="leading" secondItem="l5L-rA-Y3x" secondAttribute="leading" id="rGs-nz-CWU"/>
                                             <constraint firstAttribute="trailing" secondItem="iSc-49-59d" secondAttribute="trailing" id="rcZ-st-IYT"/>
@@ -586,11 +590,12 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="moviesCollectionView" destination="Rmp-ed-tKd" id="vkp-zC-i8V"/>
+                        <segue destination="KQ8-nL-J60" kind="show" identifier="movieDetails" id="K3z-O0-1GC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2Z-4H-IEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="944"/>
+            <point key="canvasLocation" x="-14" y="1075"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="OaG-G9-JDH">
@@ -650,7 +655,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2lC-ep-XNC" id="EOQ-ua-4v9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -724,7 +729,7 @@
                                         <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mlt-ng-ebs" id="Vc4-GS-xYF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -836,6 +841,104 @@
             </objects>
             <point key="canvasLocation" x="108" y="261"/>
         </scene>
+        <!--Horizental View-->
+        <scene sceneID="od4-dq-FKZ">
+            <objects>
+                <viewController id="KQ8-nL-J60" customClass="HorizentalView" customModule="Cine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D6u-hT-VGD"/>
+                        <viewControllerLayoutGuide type="bottom" id="0NU-sn-qht"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Ea-Sc-KVZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="157" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1e8-RN-Vl8">
+                                <rect key="frame" x="0.0" y="372" width="375" height="147"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="157" id="YUV-O6-mPo" customClass="CategoryCell" customModule="Cine" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="157"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YUV-O6-mPo" id="66B-fo-oPj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Dn-Y1-MtJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Uad-SC-VbY">
+                                                        <size key="itemSize" width="121" height="138"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="PJL-t4-pd5">
+                                                            <rect key="frame" x="5" y="9" width="121" height="138"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="121" height="138"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </view>
+                                                            <color key="backgroundColor" red="0.74117647060000003" green="0.17254901959999999" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="YUV-O6-mPo" id="VDz-wx-9pH"/>
+                                                        <outlet property="delegate" destination="YUV-O6-mPo" id="C3v-dw-45b"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9Dn-Y1-MtJ" firstAttribute="leading" secondItem="66B-fo-oPj" secondAttribute="leading" id="4J9-81-r7X"/>
+                                                <constraint firstAttribute="bottom" secondItem="9Dn-Y1-MtJ" secondAttribute="bottom" id="eBM-sr-3Cy"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Dn-Y1-MtJ" secondAttribute="trailing" id="eDO-Z9-r7a"/>
+                                                <constraint firstItem="9Dn-Y1-MtJ" firstAttribute="top" secondItem="66B-fo-oPj" secondAttribute="top" id="jLI-wa-Sj9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KQ8-nL-J60" id="9eE-uF-a1c"/>
+                                    <outlet property="delegate" destination="KQ8-nL-J60" id="8vj-SW-9cq"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFG-Vz-YzM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+                                <color key="backgroundColor" red="1" green="0.98232699950000002" blue="0.77227007489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="iFG-Vz-YzM" secondAttribute="bottom" constant="293" id="47p-HT-iJw"/>
+                            <constraint firstItem="1e8-RN-Vl8" firstAttribute="leading" secondItem="7Ea-Sc-KVZ" secondAttribute="leading" id="6L7-J0-sXn"/>
+                            <constraint firstItem="1e8-RN-Vl8" firstAttribute="top" secondItem="D6u-hT-VGD" secondAttribute="bottom" constant="352" id="6z0-hr-Ymd"/>
+                            <constraint firstItem="iFG-Vz-YzM" firstAttribute="top" secondItem="7Ea-Sc-KVZ" secondAttribute="top" id="W1b-BY-cZb"/>
+                            <constraint firstAttribute="trailing" secondItem="iFG-Vz-YzM" secondAttribute="trailing" id="abZ-23-1J5"/>
+                            <constraint firstItem="0NU-sn-qht" firstAttribute="top" secondItem="1e8-RN-Vl8" secondAttribute="bottom" constant="99" id="jJh-BG-aNK"/>
+                            <constraint firstAttribute="trailing" secondItem="1e8-RN-Vl8" secondAttribute="trailing" id="jfy-Wc-9wC"/>
+                            <constraint firstItem="iFG-Vz-YzM" firstAttribute="leading" secondItem="7Ea-Sc-KVZ" secondAttribute="leading" id="x2t-2d-sdP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraView" destination="iFG-Vz-YzM" id="jGC-fa-f4c"/>
+                        <outlet property="tableView" destination="1e8-RN-Vl8" id="Eh4-Jg-Aha"/>
+                        <segue destination="gCp-Dn-ATo" kind="presentation" identifier="playVideo" id="jBB-uU-p1U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hE8-xh-G3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1937" y="1600"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="sJs-9S-7Ox">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="gCp-Dn-ATo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uke-ex-mmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4327" y="1659"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Camera" width="64" height="64"/>
@@ -843,7 +946,6 @@
         <image name="Genre" width="30" height="30"/>
         <image name="List" width="32" height="32"/>
         <image name="add" width="256" height="256"/>
-        <image name="play" width="256" height="256"/>
         <image name="star" width="256" height="256"/>
     </resources>
 </document>

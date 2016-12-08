@@ -14,6 +14,8 @@ class MoviesNowPlayingViewController: UIViewController {
 	var movies: [TMDBMovie] = [TMDBMovie]()
 	var trailers: [TMDBTrailers] = [TMDBTrailers]()
 	let cellResueIdentifier = "NowPlayingCell"
+	
+	var url : URL!
 //	var movieId: Int?
 	var pageNumber = 1
 	//	let scrollView : UIScrollView!
@@ -139,31 +141,17 @@ extension  MoviesNowPlayingViewController: UICollectionViewDelegate {
 		TMDBClient.sharedInstance().getMovieVideos(movieId: movieId, {(movies, error) in
 			
 			if let movies  = movies{
-				
-//				self.movies += movies
-				
+
 				
 				performUIUpdatesOnMain {
 					
-//					if let video =
+
+					self.url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
 					
+					print("NowPlayingURLURL \(self.url)")
 					
-					
-//					print("Video Y \(movies[0].key)")
-//					let url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
-					
-//					print("")
-					let url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
-					
-					print("NowPlayingURLURL \(url)")
-//					cell.configureCell(data: movies[0].key)
-					cell.videoURL(url: url!)
-//					cell.videoURL()
-//					cell.conf
-//					self.moviesCollectionView.reloadData()
-					
-//					cell.playVideoButton(self, url: url!)
-//					cell.url = "https://www.youtube.com/watch?v=\((movies[0].key))"
+					self.performSegue(withIdentifier: "movieDetails", sender: self)
+
 				}
 			}else{
 				print(error)
@@ -171,23 +159,30 @@ extension  MoviesNowPlayingViewController: UICollectionViewDelegate {
 			
 			
 		})
+	}
 	
 	
-//		let posterPath = movie.id {
-//			let _ = TMDBClient.sharedInstance().taskForGETImage(TMDBClient.PosterSizes.RowPoster, filePath: posterPath, completionHandlerForImage: { (imageData, error) in
-//				if let image = UIImage(data: imageData!) {
-//					performUIUpdatesOnMain {
-//						
-//						cell.configureCell(data: imageData!)
-//					}
-//				} else {
-//					print(error)
-//				}
-//			})
-//		}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		print("Sender URl \(url)")
+		print("identifier = \(segue.identifier)")
 		
 		
-		print("you selected \(index)")
+		if  segue.identifier == "movieDetails"  {
+			
+			let destincationVC = segue.destination as! HorizentalView
+			
+			print("Destination URl \(url)")
+			destincationVC.urlVideo = url
+				
+				
+				
+	
+			
+		
+		
+		}
 	}
 }
 
