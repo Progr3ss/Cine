@@ -11,6 +11,8 @@
 		91355FFF1DE4661B00F45542 /* MovieKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91355FFE1DE4661B00F45542 /* MovieKeys.swift */; };
 		913960C81DA8EA640071A84F /* TMDBAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913960C71DA8EA640071A84F /* TMDBAuthViewController.swift */; };
 		913960CE1DA91A970071A84F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913960CD1DA91A970071A84F /* LoginViewController.swift */; };
+		915036601DF9784E009589F6 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9150365F1DF9784E009589F6 /* VideoCell.swift */; };
+		9150369C1DFABDAC009589F6 /* PlayTrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9150369B1DFABDAC009589F6 /* PlayTrailerViewController.swift */; };
 		91553FC31DB5C31D00D509AE /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91553FC21DB5C31D00D509AE /* SegmentedControl.swift */; };
 		91576AA21DE04A39004055F4 /* MoviesUpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91576AA11DE04A39004055F4 /* MoviesUpcomingViewController.swift */; };
 		91576AA41DE04A52004055F4 /* MoviesPopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91576AA31DE04A52004055F4 /* MoviesPopularViewController.swift */; };
@@ -34,7 +36,6 @@
 		91CA74B41DACC164009F4A78 /* SignupWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA74B31DACC163009F4A78 /* SignupWebViewViewController.swift */; };
 		91CA74B61DACD64C009F4A78 /* TMDBMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA74B51DACD64C009F4A78 /* TMDBMovie.swift */; };
 		91E8A1971DA075D5003191D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8A1961DA075D5003191D3 /* AppDelegate.swift */; };
-		91E8A1991DA075D5003191D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8A1981DA075D5003191D3 /* ViewController.swift */; };
 		91E8A19C1DA075D6003191D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E8A19A1DA075D6003191D3 /* Main.storyboard */; };
 		91E8A19E1DA075D6003191D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E8A19D1DA075D6003191D3 /* Assets.xcassets */; };
 		91E8A1A11DA075D6003191D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E8A19F1DA075D6003191D3 /* LaunchScreen.storyboard */; };
@@ -66,6 +67,8 @@
 		91355FFE1DE4661B00F45542 /* MovieKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieKeys.swift; sourceTree = "<group>"; };
 		913960C71DA8EA640071A84F /* TMDBAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBAuthViewController.swift; sourceTree = "<group>"; };
 		913960CD1DA91A970071A84F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Cine/LoginViewController.swift; sourceTree = "<group>"; };
+		9150365F1DF9784E009589F6 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		9150369B1DFABDAC009589F6 /* PlayTrailerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayTrailerViewController.swift; sourceTree = "<group>"; };
 		91553FC21DB5C31D00D509AE /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		91576AA11DE04A39004055F4 /* MoviesUpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesUpcomingViewController.swift; sourceTree = "<group>"; };
 		91576AA31DE04A52004055F4 /* MoviesPopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesPopularViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		91CA74B51DACD64C009F4A78 /* TMDBMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBMovie.swift; sourceTree = "<group>"; };
 		91E8A1931DA075D5003191D3 /* Cine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E8A1961DA075D5003191D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		91E8A1981DA075D5003191D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		91E8A19B1DA075D6003191D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		91E8A19D1DA075D6003191D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91E8A1A01DA075D6003191D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,8 +155,9 @@
 				91576AA11DE04A39004055F4 /* MoviesUpcomingViewController.swift */,
 				91576AA31DE04A52004055F4 /* MoviesPopularViewController.swift */,
 				91A6965B1DF6D04900FF3CCF /* HorizentalView.swift */,
-				91B709C01DDF08C100303E27 /* Cells */,
 				91A6965F1DF6DE4300FF3CCF /* MovieDetailsCollectionViewController.swift */,
+				9150369B1DFABDAC009589F6 /* PlayTrailerViewController.swift */,
+				91B709C01DDF08C100303E27 /* Cells */,
 			);
 			name = Controller;
 			path = ..;
@@ -190,6 +193,7 @@
 			children = (
 				91B709C11DDF090C00303E27 /* NowPlayingCellCollectionViewCell.swift */,
 				91A6965D1DF6D0EA00FF3CCF /* CategoryCell.swift */,
+				9150365F1DF9784E009589F6 /* VideoCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -219,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				91E8A1961DA075D5003191D3 /* AppDelegate.swift */,
-				91E8A1981DA075D5003191D3 /* ViewController.swift */,
 				91E8A19A1DA075D6003191D3 /* Main.storyboard */,
 				91E8A19D1DA075D6003191D3 /* Assets.xcassets */,
 				91E8A19F1DA075D6003191D3 /* LaunchScreen.storyboard */,
@@ -402,9 +405,9 @@
 				9167F7811DDD99B700ADF05F /* WatchlistViewController.swift in Sources */,
 				917BE4E01DA77D8F00676A1F /* BlackBoxGDC.swift in Sources */,
 				91355FFD1DE44A1500F45542 /* TMDBGetMethods.swift in Sources */,
-				91E8A1991DA075D5003191D3 /* ViewController.swift in Sources */,
 				917BE4E21DA77EC100676A1F /* TMDBConstants.swift in Sources */,
 				91E8A1971DA075D5003191D3 /* AppDelegate.swift in Sources */,
+				9150369C1DFABDAC009589F6 /* PlayTrailerViewController.swift in Sources */,
 				917BE4E81DA7B32200676A1F /* TMDBConvenience.swift in Sources */,
 				91F63A3B1DE0F3AB00AAEAD0 /* CustomImageFlowLayout.swift in Sources */,
 				913960C81DA8EA640071A84F /* TMDBAuthViewController.swift in Sources */,
@@ -416,6 +419,7 @@
 				91A6965E1DF6D0EA00FF3CCF /* CategoryCell.swift in Sources */,
 				91553FC31DB5C31D00D509AE /* SegmentedControl.swift in Sources */,
 				91355FFF1DE4661B00F45542 /* MovieKeys.swift in Sources */,
+				915036601DF9784E009589F6 /* VideoCell.swift in Sources */,
 				913960CE1DA91A970071A84F /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

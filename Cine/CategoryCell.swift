@@ -10,6 +10,14 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
 	
+	@IBOutlet weak var collectionView: UICollectionView!
+	
+	var url: URL? = nil{
+		didSet{
+			collectionView.reloadData()
+		}
+	}
+	
 	
 
     override func awakeFromNib() {

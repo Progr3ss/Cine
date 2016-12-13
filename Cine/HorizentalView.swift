@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 import AVKit
 var playerItem:AVPlayerItem?
+
+import  MediaPlayer
 class HorizentalView: UIViewController,  AVCaptureFileOutputRecordingDelegate  {
 	
 	
@@ -26,6 +28,13 @@ class HorizentalView: UIViewController,  AVCaptureFileOutputRecordingDelegate  {
 	var urlVideo : URL!
 	
 	var isRecording = false
+	
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		let fileURL = NSURL(string: "https://www.youtube.com/watch?v=LKFuXETZUsI")!
+		playVideo(url: fileURL as URL)
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		print("Transfer Video \(urlVideo)")
@@ -68,6 +77,18 @@ class HorizentalView: UIViewController,  AVCaptureFileOutputRecordingDelegate  {
 	}
 	
 	
+	
+	func playVideo(url: URL) {
+		let player = AVPlayer(url: urlVideo)
+		let playerController = AVPlayerViewController()
+		self.view.addSubview(playerController.view)
+		playerController.view.frame = self.view.frame
+		
+		player.play()
+		
+		
+		
+	}
 	func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
 		
 		if error != nil {
@@ -77,6 +98,8 @@ class HorizentalView: UIViewController,  AVCaptureFileOutputRecordingDelegate  {
 		
 		performSegue(withIdentifier: "playVideo", sender: outputFileURL)
 	}
+	
+	
 	
 	// MARK: - Segue methods
 	
@@ -142,21 +165,34 @@ extension HorizentalView: UITableViewDataSource{
 		return cell!
 	}
 	
+	
+	
 }
 
 
-extension CategoryCell: UICollectionViewDataSource{
+extension CategoryCell: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return 12
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoCell", for: indexPath)
-		cell.backgroundColor = UIColor.green
-//		self.urlVideo = urlVideo
-//		print(urlVideo)
-//		playerItem  AVPlayerItem(url: urlVideo)
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoCell", for: indexPath) as! VideoCell
+		
+//		let player = AVPlayer(url: self.urlVideo)
+//		let playerController = AVPlayerViewController()
+////		player.view.frams  = 
+//		player.view.frame = cell.viewVideo.bounds
+//		self.addSubview(player)
+		
+		
+		
+//		 var moviePlayer = MPMoviePlayerController(contentURL:urlVideo)
+		
+//		cell.backgroundColor = UIColor.green
+//		cell.viewVi
+//		cell.v
+
 	
 		
 		
@@ -168,6 +204,41 @@ extension CategoryCell: UICollectionViewDataSource{
 	
 	
 	
+
+
+	
+	
+	
+}
+
+extension CategoryCell: UICollectionViewDelegate {
+//	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+		print("Seleted Cell")
+//		performSegue(withIdentifier: "playVideo", sender: self)
+		
+	}
+	
+	
+	
+	
+	
+	func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "playVideo" {
+			let videoPlayerViewController = segue.destination as! AVPlayerViewController
+			let videoFileURL = sender as! URL
+			videoPlayerViewController.player = AVPlayer(url: videoFileURL)
+		}
+	}
+	
+
+
+	
+	
+	
+	
+
 }
 
 extension CategoryCell : UICollectionViewDelegateFlowLayout {

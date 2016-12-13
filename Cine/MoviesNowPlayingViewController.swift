@@ -94,6 +94,31 @@ extension MoviesNowPlayingViewController: UICollectionViewDataSource{
 		}
 		
 		
+		TMDBClient.sharedInstance().getMovieVideos(movieId: movie.id, {(movies, error) in
+			
+			if let movies  = movies{
+				
+				performUIUpdatesOnMain {
+					
+//					let url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
+					
+					print("NowPlayingURLURL \(movie.id)")
+					
+					
+					cell.youtubeTrailerId = movies[0].key
+//					cell.url = self.url
+//					cell.url
+					
+				}
+			}else{
+				print(error)
+			}
+			
+			
+		})
+
+		
+		
 		
 		
 		return cell
@@ -113,78 +138,78 @@ extension MoviesNowPlayingViewController: UICollectionViewDataSource{
 	
 }
 
-extension  MoviesNowPlayingViewController: UICollectionViewDelegate {
-	
-	
-	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let movie = movies[(indexPath as NSIndexPath).row]
-		
-		
-//		if let movieId = movie.id {
-//			
-//		}
-		
-		
-		let movieId = movie.id
-//		var movieId: Int? = movie.id
-		
-		
-		
-		
-		print("MovieId  \(movieId)")
-		
-		
-//		self.appDelegate.movie_ID = movieId
-		
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellResueIdentifier, for: indexPath) as! NowPlayingCellCollectionViewCell
-		
-		TMDBClient.sharedInstance().getMovieVideos(movieId: movieId, {(movies, error) in
-			
-			if let movies  = movies{
-
-				
-				performUIUpdatesOnMain {
-					
-
-					self.url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
-					
-					print("NowPlayingURLURL \(self.url)")
-					
-					self.performSegue(withIdentifier: "movieDetails", sender: self)
-
-				}
-			}else{
-				print(error)
-			}
-			
-			
-		})
-	}
-	
-	
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		
-		print("Sender URl \(url)")
-		print("identifier = \(segue.identifier)")
-		
-		
-		if  segue.identifier == "movieDetails"  {
-			
-			let destincationVC = segue.destination as! HorizentalView
-			
-			print("Destination URl \(url)")
-			destincationVC.urlVideo = url
-				
-				
-				
-	
-			
-		
-		
-		}
-	}
-}
+//extension  MoviesNowPlayingViewController: UICollectionViewDelegate {
+//	
+//	
+////	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+////		let movie = movies[(indexPath as NSIndexPath).row]
+////		
+////		
+//////		if let movieId = movie.id {
+//////			
+//////		}
+////		
+////		
+////		let movieId = movie.id
+//////		var movieId: Int? = movie.id
+////		
+////		
+////		
+////		
+////		print("MovieId  \(movieId)")
+////		
+////		
+//////		self.appDelegate.movie_ID = movieId
+////		
+//		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellResueIdentifier, for: indexPath) as! NowPlayingCellCollectionViewCell
+//		
+////		TMDBClient.sharedInstance().getMovieVideos(movieId: movieId, {(movies, error) in
+////			
+////			if let movies  = movies{
+////
+////				
+////				performUIUpdatesOnMain {
+////					
+////
+////					self.url = URL(string: "https://www.youtube.com/watch?v=\((movies[0].key))")
+////					
+////					print("NowPlayingURLURL \(self.url)")
+////					
+////					self.performSegue(withIdentifier: "movieDetails", sender: self)
+////
+////				}
+////			}else{
+////				print(error)
+////			}
+////			
+////			
+////		})
+////	}
+//	
+//
+//	
+////	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////		
+////		print("Sender URl \(url)")
+////		print("identifier = \(segue.identifier)")
+////		
+////		
+////		if  segue.identifier == "movieDetails"  {
+////			
+////			let destincationVC = segue.destination as! HorizentalView
+////			
+////			print("Destination URl \(url)")
+////			destincationVC.urlVideo = url
+////				
+////				
+////				
+////	
+////			
+////		
+////		
+////		}
+////	}
+//}
 
 
 //https://api.themoviedb.org/3/movie/343611/videos?api_key=2007a6ba55005dd305c31f4d13354605&language=en-US

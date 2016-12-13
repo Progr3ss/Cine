@@ -323,7 +323,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7g-ch-iEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="950" y="551"/>
+            <point key="canvasLocation" x="170" y="591"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="WBK-nc-tdg">
@@ -341,15 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvk-Mr-LkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2182" y="926"/>
-        </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="Xmp-mR-8Iq">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="nKi-Le-Lnk" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="961-wk-DRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1815" y="1014"/>
+            <point key="canvasLocation" x="1012" y="985"/>
         </scene>
         <!--Web Auth-->
         <scene sceneID="koO-xV-xhN">
@@ -382,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amv-Ff-gUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="815"/>
+            <point key="canvasLocation" x="2674" y="1501"/>
         </scene>
         <!--Movie Detail-->
         <scene sceneID="2ta-ac-8Vi">
@@ -455,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vga-vg-xbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="1828"/>
+            <point key="canvasLocation" x="108" y="2067"/>
         </scene>
         <!--Watchlist-->
         <scene sceneID="2aP-do-toW">
@@ -503,7 +495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pV-IW-6W0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3201" y="718"/>
+            <point key="canvasLocation" x="3626" y="1570"/>
         </scene>
         <!--Item-->
         <scene sceneID="O9l-CK-kfF">
@@ -555,6 +547,23 @@
                                                         <constraint firstAttribute="height" constant="40" id="Uoq-QM-Nju"/>
                                                     </constraints>
                                                 </stackView>
+                                                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LnC-RD-SsK">
+                                                    <rect key="frame" x="68" y="87" width="44" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </webView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXO-1D-eZA">
+                                                    <rect key="frame" x="68" y="87" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="9TO-vR-cGS"/>
+                                                        <constraint firstAttribute="width" constant="44" id="vwL-Pw-e0v"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="play"/>
+                                                    <connections>
+                                                        <action selector="playTrailer:" destination="l5L-rA-Y3x" eventType="touchUpInside" id="xbk-LU-pX6"/>
+                                                        <segue destination="G8o-rZ-CqK" kind="show" identifier="playVideo" id="WCs-wR-yhq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -562,7 +571,9 @@
                                             <constraint firstItem="Bt8-JR-GGd" firstAttribute="top" secondItem="l5L-rA-Y3x" secondAttribute="topMargin" constant="-12" id="S0t-1f-tRK"/>
                                             <constraint firstAttribute="trailing" secondItem="Bt8-JR-GGd" secondAttribute="trailing" id="Ust-cc-Dbm"/>
                                             <constraint firstItem="iSc-49-59d" firstAttribute="leading" secondItem="l5L-rA-Y3x" secondAttribute="leading" id="Xte-pl-FFN"/>
+                                            <constraint firstItem="eXO-1D-eZA" firstAttribute="centerY" secondItem="l5L-rA-Y3x" secondAttribute="centerY" id="eIK-1Y-DMm"/>
                                             <constraint firstItem="Bt8-JR-GGd" firstAttribute="centerY" secondItem="l5L-rA-Y3x" secondAttribute="centerY" id="gp1-YW-MSW"/>
+                                            <constraint firstItem="eXO-1D-eZA" firstAttribute="centerX" secondItem="l5L-rA-Y3x" secondAttribute="centerX" id="pN1-bB-CNH"/>
                                             <constraint firstItem="Bt8-JR-GGd" firstAttribute="leading" secondItem="l5L-rA-Y3x" secondAttribute="leading" id="rGs-nz-CWU"/>
                                             <constraint firstAttribute="trailing" secondItem="iSc-49-59d" secondAttribute="trailing" id="rcZ-st-IYT"/>
                                         </constraints>
@@ -595,7 +606,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2Z-4H-IEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14" y="1075"/>
+            <point key="canvasLocation" x="-828" y="1177.961019490255"/>
+        </scene>
+        <!--Play Trailer View Controller-->
+        <scene sceneID="baq-63-seS">
+            <objects>
+                <viewController id="G8o-rZ-CqK" customClass="PlayTrailerViewController" customModule="Cine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h7p-K1-N8g"/>
+                        <viewControllerLayoutGuide type="bottom" id="H7g-yM-3j7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Uq-TI-vb1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVG-YB-3IO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JVG-YB-3IO" firstAttribute="top" secondItem="4Uq-TI-vb1" secondAttribute="top" id="PMV-Bw-4jx"/>
+                            <constraint firstAttribute="bottom" secondItem="JVG-YB-3IO" secondAttribute="bottom" id="b5f-xo-Gi8"/>
+                            <constraint firstAttribute="trailing" secondItem="JVG-YB-3IO" secondAttribute="trailing" id="laO-5U-azQ"/>
+                            <constraint firstItem="JVG-YB-3IO" firstAttribute="leading" secondItem="4Uq-TI-vb1" secondAttribute="leading" id="mIs-VV-EcO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="JVG-YB-3IO" id="YrN-3r-xvz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfc-A9-Zsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192.80000000000001" y="1237.3313343328336"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="OaG-G9-JDH">
@@ -614,7 +658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nel-dN-Ugf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2708" y="2513"/>
+            <point key="canvasLocation" x="2399" y="2390"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="sgg-fR-svx">
@@ -633,7 +677,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXA-1l-8dq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2967" y="2035"/>
+            <point key="canvasLocation" x="3097" y="2390"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="8t4-St-PPR">
@@ -700,7 +744,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZO-YY-vLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1937" y="295"/>
+            <point key="canvasLocation" x="1158" y="497"/>
         </scene>
         <!--Movie Picker-->
         <scene sceneID="RpD-CI-OB8">
@@ -868,20 +912,37 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Uad-SC-VbY">
-                                                        <size key="itemSize" width="121" height="138"/>
+                                                        <size key="itemSize" width="87" height="80"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="PJL-t4-pd5">
-                                                            <rect key="frame" x="5" y="9" width="121" height="138"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="PJL-t4-pd5" customClass="VideoCell" customModule="Cine" customModuleProvider="target">
+                                                            <rect key="frame" x="5" y="38" width="87" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="121" height="138"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="87" height="80"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-dG-3tU">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="87" height="80"/>
+                                                                        <color key="backgroundColor" red="0.91065914150000005" green="0.38808659550000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </view>
+                                                                </subviews>
                                                             </view>
                                                             <color key="backgroundColor" red="0.74117647060000003" green="0.17254901959999999" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstItem="3ze-dG-3tU" firstAttribute="top" secondItem="PJL-t4-pd5" secondAttribute="top" id="5OU-rN-IkO"/>
+                                                                <constraint firstAttribute="bottom" secondItem="3ze-dG-3tU" secondAttribute="bottom" id="Re5-Ap-jvJ"/>
+                                                                <constraint firstItem="3ze-dG-3tU" firstAttribute="centerY" secondItem="PJL-t4-pd5" secondAttribute="centerY" id="er4-S7-jd2"/>
+                                                                <constraint firstItem="3ze-dG-3tU" firstAttribute="leading" secondItem="PJL-t4-pd5" secondAttribute="leading" id="fdF-IE-edO"/>
+                                                                <constraint firstAttribute="trailing" secondItem="3ze-dG-3tU" secondAttribute="trailing" id="rg8-eT-Veh"/>
+                                                                <constraint firstItem="3ze-dG-3tU" firstAttribute="centerX" secondItem="PJL-t4-pd5" secondAttribute="centerX" id="ung-is-Otf"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="viewVideo" destination="3ze-dG-3tU" id="a2C-3t-d7U"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
@@ -897,6 +958,9 @@
                                                 <constraint firstItem="9Dn-Y1-MtJ" firstAttribute="top" secondItem="66B-fo-oPj" secondAttribute="top" id="jLI-wa-Sj9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="9Dn-Y1-MtJ" id="MV4-Jg-4Uf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -924,20 +988,11 @@
                     <connections>
                         <outlet property="cameraView" destination="iFG-Vz-YzM" id="jGC-fa-f4c"/>
                         <outlet property="tableView" destination="1e8-RN-Vl8" id="Eh4-Jg-Aha"/>
-                        <segue destination="gCp-Dn-ATo" kind="presentation" identifier="playVideo" id="jBB-uU-p1U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hE8-xh-G3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1937" y="1600"/>
-        </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="sJs-9S-7Ox">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="gCp-Dn-ATo" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uke-ex-mmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4327" y="1659"/>
+            <point key="canvasLocation" x="1337" y="1871"/>
         </scene>
     </scenes>
     <resources>
@@ -946,6 +1001,7 @@
         <image name="Genre" width="30" height="30"/>
         <image name="List" width="32" height="32"/>
         <image name="add" width="256" height="256"/>
+        <image name="play" width="256" height="256"/>
         <image name="star" width="256" height="256"/>
     </resources>
 </document>
