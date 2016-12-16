@@ -42,6 +42,9 @@
 		91E8A1AC1DA075D6003191D3 /* CineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8A1AB1DA075D6003191D3 /* CineTests.swift */; };
 		91E8A1B71DA075D6003191D3 /* CineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8A1B61DA075D6003191D3 /* CineUITests.swift */; };
 		91ED35611DEECF5E004128AB /* TMDBTrailers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ED35601DEECF5E004128AB /* TMDBTrailers.swift */; };
+		91F16DF71E03EF54003813FB /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F16DF61E03EF54003813FB /* YTPlayerView.m */; };
+		91F16DFA1E03EFEC003813FB /* testYoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F16DF91E03EFEC003813FB /* testYoutubeViewController.swift */; };
+		91F16DFC1E03FFA5003813FB /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 91F16DFB1E03FFA5003813FB /* Assets */; };
 		91F63A3B1DE0F3AB00AAEAD0 /* CustomImageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F63A3A1DE0F3AB00AAEAD0 /* CustomImageFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +107,11 @@
 		91E8A1B61DA075D6003191D3 /* CineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineUITests.swift; sourceTree = "<group>"; };
 		91E8A1B81DA075D6003191D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91ED35601DEECF5E004128AB /* TMDBTrailers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBTrailers.swift; sourceTree = "<group>"; };
+		91F16DF41E03EF53003813FB /* Cine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cine-Bridging-Header.h"; sourceTree = "<group>"; };
+		91F16DF51E03EF54003813FB /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		91F16DF61E03EF54003813FB /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		91F16DF91E03EFEC003813FB /* testYoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testYoutubeViewController.swift; sourceTree = "<group>"; };
+		91F16DFB1E03FFA5003813FB /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		91F63A3A1DE0F3AB00AAEAD0 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +174,7 @@
 		918ECB3E1DD86F0900C1E73E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91F16DF81E03EF61003813FB /* Youtube Header */,
 				91CA74B51DACD64C009F4A78 /* TMDBMovie.swift */,
 				917BE4E11DA77EC100676A1F /* TMDBConstants.swift */,
 				917BE4E31DA77EF800676A1F /* TMDBClient.swift */,
@@ -222,8 +231,10 @@
 		91E8A1951DA075D5003191D3 /* Cine */ = {
 			isa = PBXGroup;
 			children = (
+				91F16DF91E03EFEC003813FB /* testYoutubeViewController.swift */,
 				91E8A1961DA075D5003191D3 /* AppDelegate.swift */,
 				91E8A19A1DA075D6003191D3 /* Main.storyboard */,
+				91F16DFB1E03FFA5003813FB /* Assets */,
 				91E8A19D1DA075D6003191D3 /* Assets.xcassets */,
 				91E8A19F1DA075D6003191D3 /* LaunchScreen.storyboard */,
 				91E8A1A21DA075D6003191D3 /* Info.plist */,
@@ -253,6 +264,16 @@
 				91E8A1B81DA075D6003191D3 /* Info.plist */,
 			);
 			path = CineUITests;
+			sourceTree = "<group>";
+		};
+		91F16DF81E03EF61003813FB /* Youtube Header */ = {
+			isa = PBXGroup;
+			children = (
+				91F16DF51E03EF54003813FB /* YTPlayerView.h */,
+				91F16DF61E03EF54003813FB /* YTPlayerView.m */,
+				91F16DF41E03EF53003813FB /* Cine-Bridging-Header.h */,
+			);
+			name = "Youtube Header";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +345,7 @@
 					91E8A1921DA075D5003191D3 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Z59FNT2JYY;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					91E8A1A61DA075D6003191D3 = {
@@ -366,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91E8A1A11DA075D6003191D3 /* LaunchScreen.storyboard in Resources */,
+				91F16DFC1E03FFA5003813FB /* Assets in Resources */,
 				91E8A19E1DA075D6003191D3 /* Assets.xcassets in Resources */,
 				91E8A19C1DA075D6003191D3 /* Main.storyboard in Resources */,
 			);
@@ -400,6 +423,7 @@
 				9167F7781DDD989700ADF05F /* BorderedButton.swift in Sources */,
 				9167F77B1DDD98F200ADF05F /* MoviePickerViewController.swift in Sources */,
 				917BE4E41DA77EF800676A1F /* TMDBClient.swift in Sources */,
+				91F16DF71E03EF54003813FB /* YTPlayerView.m in Sources */,
 				91CA74B41DACC164009F4A78 /* SignupWebViewViewController.swift in Sources */,
 				91A6965C1DF6D04900FF3CCF /* HorizentalView.swift in Sources */,
 				9167F7811DDD99B700ADF05F /* WatchlistViewController.swift in Sources */,
@@ -418,6 +442,7 @@
 				9167F77D1DDD994800ADF05F /* MovieDetailViewController.swift in Sources */,
 				91A6965E1DF6D0EA00FF3CCF /* CategoryCell.swift in Sources */,
 				91553FC31DB5C31D00D509AE /* SegmentedControl.swift in Sources */,
+				91F16DFA1E03EFEC003813FB /* testYoutubeViewController.swift in Sources */,
 				91355FFF1DE4661B00F45542 /* MovieKeys.swift in Sources */,
 				915036601DF9784E009589F6 /* VideoCell.swift in Sources */,
 				913960CE1DA91A970071A84F /* LoginViewController.swift in Sources */,
@@ -572,11 +597,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = Z59FNT2JYY;
 				INFOPLIST_FILE = Cine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Martin-Chibwe.Cine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cine/Cine-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -585,11 +613,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = Z59FNT2JYY;
 				INFOPLIST_FILE = Cine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Martin-Chibwe.Cine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cine/Cine-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

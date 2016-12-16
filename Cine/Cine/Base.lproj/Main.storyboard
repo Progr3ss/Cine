@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Pz-G1-Hp2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xRe-ZJ-oRz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -449,6 +449,64 @@
             </objects>
             <point key="canvasLocation" x="108" y="2067"/>
         </scene>
+        <!--Test Youtube View Controller-->
+        <scene sceneID="IPk-qh-zdk">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="xRe-ZJ-oRz" customClass="testYoutubeViewController" customModule="Cine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4xL-dI-Dox"/>
+                        <viewControllerLayoutGuide type="bottom" id="pmp-Sf-E14"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wEf-zk-qMk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kt0-DD-Tel" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
+                                <color key="backgroundColor" red="1" green="0.98232699950000002" blue="0.77227007489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="56K-eM-OMn"/>
+                                    <constraint firstAttribute="height" constant="203" id="Ii7-7e-SJG"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NE9-G0-AJB">
+                                <rect key="frame" x="0.0" y="357" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukL-mI-4te">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="playVideo:" destination="xRe-ZJ-oRz" eventType="touchUpInside" id="GdY-TS-hIp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBp-II-ytE">
+                                        <rect key="frame" x="0.0" y="30" width="375" height="30"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="stopVideo:" destination="xRe-ZJ-oRz" eventType="touchUpInside" id="ejv-oK-d7j"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NE9-G0-AJB" firstAttribute="leading" secondItem="wEf-zk-qMk" secondAttribute="leading" id="L4v-GZ-eWe"/>
+                            <constraint firstItem="kt0-DD-Tel" firstAttribute="leading" secondItem="wEf-zk-qMk" secondAttribute="leading" id="OCu-rR-CcW"/>
+                            <constraint firstItem="NE9-G0-AJB" firstAttribute="top" secondItem="kt0-DD-Tel" secondAttribute="bottom" constant="154" id="d7a-T3-ysu"/>
+                            <constraint firstItem="kt0-DD-Tel" firstAttribute="top" secondItem="wEf-zk-qMk" secondAttribute="top" id="eSk-Y4-7Bf"/>
+                            <constraint firstAttribute="trailing" secondItem="NE9-G0-AJB" secondAttribute="trailing" id="lRo-QY-bou"/>
+                            <constraint firstAttribute="trailing" secondItem="kt0-DD-Tel" secondAttribute="trailing" id="m0f-fJ-Ylv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="kt0-DD-Tel" id="80r-XE-Pmg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MwZ-EQ-zI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="445.60000000000002" y="2946.4767616191907"/>
+        </scene>
         <!--Watchlist-->
         <scene sceneID="2aP-do-toW">
             <objects>
@@ -469,7 +527,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9z3-U2-gwS" id="Z0D-T2-Hak">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -606,7 +664,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2Z-4H-IEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-828" y="1177.961019490255"/>
+            <point key="canvasLocation" x="-1278" y="1032"/>
         </scene>
         <!--Play Trailer View Controller-->
         <scene sceneID="baq-63-seS">
@@ -699,7 +757,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2lC-ep-XNC" id="EOQ-ua-4v9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -773,7 +831,7 @@
                                         <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mlt-ng-ebs" id="Vc4-GS-xYF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -905,7 +963,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="157"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YUV-O6-mPo" id="66B-fo-oPj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Dn-Y1-MtJ">
